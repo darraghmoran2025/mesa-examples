@@ -15,7 +15,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from mesa.discrete_space import CellAgent
+from mesa.discrete_space import CellAgent, FixedAgent
 
 # ──────────────────────────────────────────────────────────────────────── #
 #  NeedsAgent base class                                                   #
@@ -114,7 +114,7 @@ class NeedsAgent(CellAgent, ABC):
 # ──────────────────────────────────────────────────────────────────────── #
 
 
-class FoodSource(CellAgent):
+class FoodSource(FixedAgent):
     """Stationary food patch.  Regenerates 1 food unit per step up to MAX_FOOD."""
 
     MAX_FOOD: int = 6
@@ -132,7 +132,7 @@ class FoodSource(CellAgent):
         return self.food == 0
 
 
-class HomePatch(CellAgent):
+class HomePatch(FixedAgent):
     """Stationary rest site.  Villagers satisfy REST by standing adjacent."""
 
     def __init__(self, model) -> None:

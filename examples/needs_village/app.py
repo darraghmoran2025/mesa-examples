@@ -153,7 +153,7 @@ model_params = {
 # ──────────────────────────────────────────────────────────────────────── #
 
 page = SolaraViz(
-    VillageModel,
+    VillageModel(),
     components=[SpaceComponent, NeedsChart, ActiveNeedChart, PreemptionChart],
     model_params=model_params,
     name="Needs-Based Village",
